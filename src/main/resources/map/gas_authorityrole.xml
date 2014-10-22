@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="gas_authorityrole">
+	<insert id="insert" parameterType="AuthorityRole">
+	insert into gas_authorityrole(authorityid,	 roleid)
+	 values(#{authorityid},	 #{roleid})
+	</insert>
+	<delete id="delteauthorityroleByParamter">
+		delete from gas_userrole where 
+		<if test="id != null">
+		id=#{id}
+		</if>
+		<if test="roleid != null">
+		roleid=#{roleid}
+		</if>
+	</delete>
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="gas_role">
+	<insert id="insert" parameterType="Role">
+	insert into gas_role(rolename,	 status,parentrole,addby)
+	values(#{rolename},#{status},#{parentrole},#{addby})
+	</insert>
+	<select id="getOne" resultType="Role" parameterType="Role" >
+		select * from gas_role where id= #{id}
+	</select>
+	
+	<select id="getRolelistbase" resultType="Role" parameterType="Long">
+		select r.* from gas_role r,gas_userrole ur where ur.roleid=r.id and ur.userid=#{_parameter}
+	</select>
+	<select id="getRolelistparent" resultType="_long" parameterType="list">
+		select id from gas_role   
+		<where>
+		status='0' and parentrole in 
+		 <foreach item="item" collection="list" separator="," open="(" close=")" index="index"  >
+		 #{item}
+		 </foreach>
+		 </where>
+	</select>
+	
+</mapper>

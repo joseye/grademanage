@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-config.dtd">  
+<configuration>  
+    <settings>  
+        <setting name="cacheEnabled" value="true" />  
+        <setting name="lazyLoadingEnabled" value="true" />  
+        <setting name="aggressiveLazyLoading" value="false" />  
+        <setting name="multipleResultSetsEnabled" value="true" />  
+        <setting name="useColumnLabel" value="true" />  
+        <!-- <setting name="useGeneratedKeys" value="true" /> -->  
+        <setting name="autoMappingBehavior" value="FULL" />  
+        <!-- <setting name="defaultExecutorType" value="BATCH" /> -->  
+        <setting name="jdbcTypeForNull" value="NULL"/>
+        <setting name="defaultStatementTimeout" value="600"/>  
+    </settings>  
+    
+    <typeAliases>
+     <typeAlias alias="AuthorityRole" type="com.gradeadminsystrem.bean.AuthorityRole"/>
+     <typeAlias alias="Authority" type="com.gradeadminsystrem.bean.Authority"/>
+     <typeAlias alias="Role" type="com.gradeadminsystrem.bean.Role"/>
+   </typeAliases>
+   
+   <mappers>  
+       <mapper resource="map/gas_user.xml"/> 
+       <mapper resource="map/gas_userrole.xml"/> 
+       <mapper resource="map/gas_authority.xml"/> 
+       <mapper resource="map/gas_authorityrole.xml"/> 
+       <mapper resource="map/gas_role.xml"/> 
+    </mappers> 
+</configuration>
